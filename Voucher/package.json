@@ -1,0 +1,23 @@
+{
+  "name": "voucher",
+  "version": "1.0.0",
+  "description": "entrevista para a singu",
+  "main": "App.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-load": "^1.1.16",
+    "mysql": "^2.15.0",
+    "nodemon": "^1.17.4",
+    "npm": "^6.0.1",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Rodrigues do Nascimento",
+  "license": "ISC"
+}
