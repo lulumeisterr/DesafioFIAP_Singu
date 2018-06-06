@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Voucher Singu">
+  <meta name="author" content="@lulumeisterr">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="moda, beleza , singu , manicure, massagista"/>
+  <meta http-equiv="cache-control" content="no-cache" />
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" type="text/css" href="assets/css/full.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-purple fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Singu</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+<div class="container">
+
+  <div class="jumbotron">
+    <h1 class="text-center">Vouchers</h1>
+    <hr class="my-4">
+  </div>
+
+
+  <table class="table table-hover">
+ 
+      <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Campanha</th>
+          <th scope="col">Inicio</th>
+          <th scope="col">Fim</th>
+          <th scope="col">Max</th>
+          <th scope="col">Valor</th>
+
+      </tr>
+  
+        <%for(var i=0;i<lista.length;i++) {%>
+
+            <tr>
+              <th scope="row">1</th>
+              <td><%=lista[i].codigo%></td>
+              <td><%=lista[i].campanha%></td>
+              <td><%=lista[i].inicio%></td>
+              <td><%=lista[i].fim%></td>
+              <td><%=lista[i].max%></td>
+              <td><%=lista[i].valor%></td>
+            </tr>
+    
+            <%}%>
+  
+        <td><button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
+          Cadastrar
+        </button> </td>
+
+        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            Remover
+          </button></td>
+      </tr>
+     
+  
+  </table>
+  
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Voucher</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="/vouchers" method="post">
+
+          <div class="form-row">
+        
+            <div class="form-group col-md-6">
+              <label id="move1" for="tCodigo"> CÓDIGO </label>
+              <input type="text" class="form-control" name="codigo" id="tCodigo"  placeholder="lari100">
+            </div>
+      
+            <div class="form-group col-md-6">
+              <label id="move2" for="tValor"> VALOR </label>
+              <input type="text" class="form-control" name="valor" id="tValor" placeholder="RS$ 20,00">
+            </div>
+          </div>
+  
+
+          <div class="form-group">
+            <label id="move3" for="tCampanha"> CAMPANHA </label>
+            <input type="text" class="form-control" name="campanha" id="tCampanha" placeholder="lariduartepedidos">
+          </div>
+  
+    
+          <div class="form-group">
+            <label id="move4" for="tInicio"> INICIO </label>
+            <input type="text" class="form-control" name="inicio" id="tInicio" placeholder="06/06/2017">
+          </div>
+    
+    
+          <div class="form-group">
+            <label id="move5" for="tFim"> FIM </label>
+            <input type="text" class="form-control" name="fim" id="tFim" placeholder="06/06/2019">
+          </div>
+   
+          <div class="form-group">
+            <label id="move6" for="tMax"> MAX </label>
+            <input type="text" class="form-control" name="max" id="tMax" placeholder="lari100">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-primary" value="Salvar e fechar">
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle1">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <form action="/vouchers/delete" method="post">
+
+              <div class="container">
+            
+                <div class="form-group col-md-6">
+                  <label id="move1" for="tCodigo"> CÓDIGO </label>
+                  <input type="text" class="form-control" name="codigo" id="tCodigo"  placeholder="lari100">
+                </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Deletar e fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
