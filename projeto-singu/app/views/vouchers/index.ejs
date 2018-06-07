@@ -13,9 +13,14 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" type="text/css" href="assets/css/full.css">
+  
     <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/estilo.css">
+
   </head>
 
   <body>
@@ -43,44 +48,64 @@
     <hr class="my-4">
   </div>
 
+  <div class="table-responsive gn-tabela-simples" >
+      <table class="table table-hover">
 
-  <table class="table table-hover">
- 
+    <thead>
       <tr>
-          <th scope="col">Código</th>
-          <th scope="col">Campanha</th>
-          <th scope="col">Inicio</th>
-          <th scope="col">Fim</th>
-          <th scope="col">Max</th>
-          <th scope="col">Valor</th>
-
+          <th>Código</th>
+          <th>Campanha</th>
+          <th>Inicio</th>
+          <th>Fim</th>
+          <th>Max</th>
+          <th>Valor</th>
+        <th class="table-propostas-col-acoes">Acoes</th>
       </tr>
-  
+        
+    </thead>
+    <tbody>
+    
+      
         <%for(var i=0;i<lista.length;i++) {%>
-
+      <thead>
             <tr>
-              <th scope="row">1</th>
               <td><%=lista[i].codigo%></td>
               <td><%=lista[i].campanha%></td>
               <td><%=lista[i].inicio%></td>
               <td><%=lista[i].fim%></td>
               <td><%=lista[i].max%></td>
-              <td><%=lista[i].valor%></td>
-            </tr>
-    
-            <%}%>
-  
-        <td><button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
-          Cadastrar
-        </button> </td>
+              <td><%=lista[i].valor%></td>  
 
-        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-            Remover
-          </button></td>
-      </tr>
-     
-  
+            <td class="text-center">
+
+             <a class="btn  btn-link" data-toggle="modal" 
+             data-target="#cadastrar" title="Cadastrar">
+             <i class="glyphicon glyphicon-pencil"></i>
+            </a>
+            
+            
+            <a class="btn  btn-link" data-toggle="modal" 
+             data-target="#atualizar" title="Atualizar">
+             <i class="glyphicon glyphicon-envelope"></i>
+            </a>
+           
+           <a class="btn  btn-link" data-toggle="modal" 
+             data-target="#remover" title="Remover">
+             <i class=" glyphicon glyphicon-trash "></i>
+            </a>
+       
+         </td>
+          
+      </thead>
+            </tr>
+            <%}%>
+
+            <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
+                Cadastrar
+              </button>
+            </tbody>
   </table>
+</div>
   
 <!-- Button trigger modal -->
 
@@ -146,22 +171,22 @@
 
   
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
+  <div class="modal fade" id="remover" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle1">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle1">Remover</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           
-            <form action="/vouchers/delete" method="post">
+            <form action="/vouchers" method="delete">
 
               <div class="container">
             
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-3">
                   <label id="move1" for="tCodigo"> CÓDIGO </label>
                   <input type="text" class="form-control" name="codigo" id="tCodigo"  placeholder="lari100">
                 </div>
@@ -169,7 +194,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="button" class="btn btn-primary">Deletar e fechar</button>
+          <input type="submit" class="btn btn-primary" value="Deletar e fechar">
         </div>
       </div>
     </div>

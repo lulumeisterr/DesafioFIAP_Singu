@@ -1,0 +1,22 @@
+
+.gn-tabela-simples {
+	margin-top: 15px;
+}
+
+
+.gn-tabela-simples table tr th {
+	border-bottom-width: 2px;
+}
+
+.gn-tabela-simples table tr td{
+	boder-top: none;
+	border-bottom: 1px solid #e7eaec;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.table-propostas-col-acoes {
+    min-width: 80px;
+    left:10px;	
+    text-align:  center;	
+}

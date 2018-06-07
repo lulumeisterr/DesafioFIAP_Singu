@@ -3,44 +3,38 @@ var app = express();
 var bodyParse = require('body-parser');
 
 app.use(bodyParse.urlencoded({extended: true})); 
+app.use(bodyParse.json());
 
-var json = [{codigo: 1 ,campanha:'Doação' ,inicio: '25/03/17' ,fim: '30/03/17' , max: 100 ,Valor:50} ,
-            {codigo: 2 ,campanha:'Venda' ,inicio: '25/03/17' ,fim: '30/03/17' , max: 100 ,Valor:50}
-            ];
+app.set('view engine','ejs') 
+app.set('views','./app/views');	
+app.use(express.static('app/views/vouchers'));
 
 var recuperarHtml = [];
 
-
 app.get('/vouchers' , function(req,res){
-    app.set('view engine','ejs') 
-    app.set('views','./app/views');	
-    app.use(express.static('app/views/vouchers'));
-
-    // Exibindo a tabela dinamica
-    console.log(recuperarHtml);
-    res.render('vouchers/index' , {lista:recuperarHtml});
+    res.render('vouchers/index',{lista:recuperarHtml});
 });
-
 
 app.post('/vouchers' , function(req,res){
     var produto = req.body;
-    console.log(req.body);
-    // Adicionar um elemento no inicio do array
-    recuperarHtml.unshift(produto);
-    res.redirect('/vouchers');
+    console.log(produto.codigo);
+    // Adicionar um elemento no array
+    recuperarHtml.push(produto);
+    res.status(201).redirect('/vouchers');
 });
 
-app.put('/vouchers' , function(req,res){
+app.delete('/vouchers:id',function(req,res){
+    res.status(200).redirect('/vouchers');
+});
+
+app.put('/vouchers/:id' , function(req,res){
+    const id = req.params.id;
+    res.status(200).send({
+        id: id
+    });
 });
 
 
-app.delete('/vouchers' , function(req,res){
-    if(req.body.codigo == recuperarHtml.codigo){
-        array.shift();
-    }
-    console.log(recuperarHtml.codigo);
-    res.redirect('/vouchers');
-});
 
 
 app.listen(3000, function(){
