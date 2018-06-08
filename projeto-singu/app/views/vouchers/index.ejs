@@ -99,12 +99,19 @@
       </thead>
             </tr>
             <%}%>
-
-            <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
-                Cadastrar
-              </button>
             </tbody>
   </table>
+
+  <%for(var i=0;i<lista.length;i++) {%>
+      <ul class="pagination">
+          <li><a><%=[i]%></a></li>
+      </ul> 
+      <%}%>
+
+  <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
+      Cadastrar
+    </button>
+
 </div>
   
 <!-- Button trigger modal -->
@@ -182,7 +189,7 @@
         </div>
         <div class="modal-body">
           
-            <form action="/vouchers" method="delete">
+        <form action="/vouchers" method="delete">
 
               <div class="container">
             
@@ -192,6 +199,9 @@
                 </div>
 
         </div>
+
+        </form>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
           <input type="submit" class="btn btn-primary" value="Deletar e fechar">

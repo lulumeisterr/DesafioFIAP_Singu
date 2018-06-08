@@ -9,10 +9,10 @@
 }
 
 .gn-tabela-simples table tr td{
-	boder-top: none;
 	border-bottom: 1px solid #e7eaec;
 	padding: 10px;
 	vertical-align: middle;
+	text-align: left;
 }
 
 .table-propostas-col-acoes {
