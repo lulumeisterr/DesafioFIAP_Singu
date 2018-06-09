@@ -28,7 +28,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg bg-purple fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Singu</a>
+        <a class="navbar-brand" href="#"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,10 +43,31 @@
     <!-- Page Content -->
 <div class="container">
 
+      <%if(typeof errosValidacao !== 'undefined'){%>
+          <%for(var i=0;i<errosValidacao.length;i++){%>
+          <div class="alert alert-danger" ><%=errosValidacao[i].msg%></div>
+            <%}%>
+          <%}%>
+
+
+
   <div class="jumbotron">
     <h1 class="text-center">Vouchers</h1>
     <hr class="my-4">
   </div>
+
+<fieldset class="fild"><p class="lab">Filter Results</p></fieldset>
+
+    <div class="dropdown">
+        <button class="btn btn-default3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Settings
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
+                Cadastrar
+              </button>
+        </div>
+      </div>
 
   <div class="table-responsive gn-tabela-simples" >
       <table class="table table-hover">
@@ -107,11 +128,6 @@
           <li><a><%=[i]%></a></li>
       </ul> 
       <%}%>
-
-  <button type="button" class="btn btn-small btn-primary" data-toggle="modal" data-target="#cadastrar">
-      Cadastrar
-    </button>
-
 </div>
   
 <!-- Button trigger modal -->
@@ -130,7 +146,6 @@
       <div class="modal-body">
         
         <form action="/vouchers" method="post">
-
           <div class="form-row">
         
             <div class="form-group col-md-6">
@@ -153,13 +168,13 @@
     
           <div class="form-group">
             <label id="move4" for="tInicio"> INICIO </label>
-            <input type="text" class="form-control" name="inicio" id="tInicio" placeholder="06/06/2017">
+            <input type="date" class="form-control" name="inicio" id="tInicio" placeholder="06/06/2017">
           </div>
     
     
           <div class="form-group">
             <label id="move5" for="tFim"> FIM </label>
-            <input type="text" class="form-control" name="fim" id="tFim" placeholder="06/06/2019">
+            <input type="date" class="form-control" name="fim" id="tFim" placeholder="06/06/2019">
           </div>
    
           <div class="form-group">
@@ -168,8 +183,8 @@
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <input type="submit" class="btn btn-primary" value="Salvar e fechar">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <input type="submit" class="btn btn-default2" value="Salvar e fechar">
       </div>
     </div>
   </div>
