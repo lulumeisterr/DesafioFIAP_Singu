@@ -1,11 +1,11 @@
-# DesafioFIAP_Singu
+﻿# DesafioFIAP_Singu
 Voucher
 
 # 1º Instale as dependencias dentro da pasta projeto-sigu utilizando o comando " npm install "
 # 2° A aplicação esta toda no arquivo App.js
 # 3° Dependencias instaladas : Express , body-parse , ejs , express-validator e nodemon
 # 4° Utilize nodemon app , para executar a aplicação
-
+# 5° Clicar no dropdown em Setting's para realizar o primeiro cadastro
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 1 - Sobre os metodos:
